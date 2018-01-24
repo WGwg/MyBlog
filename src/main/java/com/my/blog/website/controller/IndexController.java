@@ -41,7 +41,7 @@ import java.util.List;
 public class IndexController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
-    @Resource
+    @Resource 
     private IContentService contentService;
 
     @Resource
