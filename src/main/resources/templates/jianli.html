@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+    <title>简历</title>
+    <style>
+        .container {
+            width: 60%;
+            margin: 0 auto 0.5rem;
+            font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+        }
+        a {
+            color: darkturquoise;
+            word-break: break-all;
+        }
+        .noLine {
+            text-decoration: none;
+        }
+        h2 {
+            color: darkturquoise;
+            margin-bottom: 28px;
+        }
+        h3 {
+            color: darkturquoise;
+            border-bottom: 1px solid #cccccc;
+            padding-top: 0.5rem;
+        }
+        .left {
+            color: darkturquoise;
+            display: inline-block;
+            width: 15%;
+        }
+        .info {
+            width: 100%;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .job, .canDo, .selfIhonor, .done, .selfIntro, .account, .post, .trainee {
+            margin-bottom: 1.5rem;            
+        }
+        .me {
+            position: absolute;
+            top: 0;
+            right: 2rem;
+            border-radius: 0.5rem;
+            width: 150px;
+            height: 200px;
+        }
+        p {
+            width: 100%;
+            font-size: 1rem;
+        }
+        ul {
+            list-style-type: circle;
+        }
+        li {
+            margin-bottom: 1rem;
+            margin-left: -1rem;
+        }
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #9da09f;
+            margin-bottom: 0;
+        }
+
+        .company {
+            color: #00CED1;
+        }
+
+        .date {
+            margin-left: 1rem;
+        }
+        @media screen and (max-width: 440px) {
+            html {font-size: 18px;}
+            .container {
+                width: calc(100% - 1rem);
+                margin: 0 0 1rem;
+                padding: 0 0.5rem;
+            }
+            .me {
+               width: 5.5rem;
+               height: 6rem;
+               border-radius: 50%;
+               right: 0;
+            }
+            .left {
+                width: 35%;
+            }
+            .right {
+                width: 60%;
+            }
+            .none {
+                display: none
+            }
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align: center" id="headline">卫刚的简历 </h2>
+<div class="container">
+    <div class="info">
+        <p><span class="left">姓名：</span><span>卫刚</span></p>
+        <p><span class="left">在读院校：</span><span>天津大学仁爱学院</span></p>
+        <p><span class="left">QQ：</span><span>956910931</span></p>
+        <p><span class="left">手机：</span><span>13716187714</span></p>
+        <p><span class="left">E-mail：</span><span class="right">956910931@qq.com</span></p>
+        <img th:src="@{/user/img/me.jpg}"  class="me"/>
+    </div>
+    <div class="job">
+        <a href="#job" data-scroll='true'  class="noLine"><h3 id="job">求职意向</h3></a> 
+        <p>Java开发工程师</p>
+    </div>
+    <div class="account">
+        <a href="#account" data-scroll='true'  class="noLine"><h3 id="account">社交账号</h3></a>
+        <ul>
+            <li>github主页： <a target="_blank" href="https://github.com/WGwg">github.com/WGwg</a></li>
+            <li>个人博客主页： <a target="_blank" href="http://www.isgangzi.cn">www.isgangzi.cn</a></li> 
+			<li>CSDN主页： <a target="_blank" href="http://blog.csdn.net/qq_33188180">CSDN</a></li> 			
+        </ul>
+    </div>
+    <div class="trainee">
+        <a href="#done" data-scroll='true'  class="noLine"><h3 id="done">实习经历<span class="company">(北京软通动力)</span> </h3></a>
+        <p class="date">2017.03 -- 至今</p>
+        <ul>
+            <li>企业内勤车辆管理系统<br/>
+				这个项目自己独立开发。前期进行需求调研，数据库建模，原型设计，采用SpringBoot微服务框架进行开发，底层实现使用ORM持久层框架Mybaties，
+				经过调查发现了使用通用mapper插件可以节省大量人力时间，使用拦截器实现具体的执行sql，
+				在数据库变动时不再需要重新生成xml以及自动生成一些通用简单的增删改查的方法等优点。
+				还有pagehelper分页插件，也是通过Interceptor拦截器，拦截到执行的sql语句，
+				将语句包装成具有分页功能的语句，实现真分页，功能强大简单易用。  
+				 涉及到权限的功能，整合shiro+redis进行开发，将角色、用户、权限的关系清晰划分。
+				 前台使用Thymeleaf模板引擎进行页面静态化，使用Thymeleaf的fragment来进行layout布局以及一些标签的使用。
+				 通过这个项目，熟悉了springboot框架的搭建和其他技术的集成使用，也收获了mapper，pagehelper等插件的使用，
+				 熟悉了Thymeleaf更多标签的使用，受益匪浅。
+			</li>
+			<li>国企某运输设备公司云平台系统<br/>
+				前期负责开发文档的整理，基础资料、部件模块功能的开发以及辅助测试人员进行简单测试；前端使用EasyUI框架做后台系统的布局；封装了Excel表格导入工具类，
+				在其它自建系统也被使用。在此项目中感受到了公司团队开发大型项目的流程与规范。学会了常用术语，以及简单测试case编写和用例测试，
+				QA的提交与书写，丰富了自己的眼界。技术上丰富了接口，父子类继承，抽象类，sql优化，存储过程等技术的使用。 
+				 项目分2期上线，目前一期已经顺利上线，领导比较满意。
+			</li>
+        </ul>
+    </div>
+    <div class="done">
+        <a href="#done" data-scroll='true'  class="noLine"><h3 id="done">个人项目</h3></a>
+        <ul>
+            <li>个人博客。 <a href="http://www.isgangzi.cn" target="_blank">www.isgangzi.cn</a>， 从GitHub上fork某位大神的博客项目，自己修改了部分代码。项目是由SpringBoot+Mybatis+thymeleaf+docker等技术实现的Java博客系统，目前已经开源，功能齐全、部署简单及完善的代码。<a href="https://github.com/WGwg/MyBlog" target="_blank">[github源码]</a> | <a href="http://isgangzi.cn/about" target="_blank">[博客介绍]</a>
+            </li>
+         <li>车辆管理系统。基于SpringBoot搭建的一个OA管理系统。旨在练习springboot微服务框架技术，技术罗列：SpringBoot，Mybaties，Thymeleaf，Druid，pagehelper，mapper，devtools，bootstrap，bootstrapTable等 。<a href="https://github.com/WGwg/Car-Manage" target="_blank">[github源码]</a> 
+            </li>
+           
+        </ul>
+    </div>
+    <div class="post">
+        <a href="#post" data-scroll='true'  class="noLine"><h3 id="post">技术文章</h3></a>
+        <ul>
+			<li><a href="http://www.isgangzi.cn/article/4" target="_blank">部署SpringBoot项目到服务器</a></li>
+			<li><a href="http://www.isgangzi.cn/article/8" target="_blank">上传本地项目到GitHub及提交更新操作</a></li>
+			<li><a href="http://www.isgangzi.cn/article/9" target="_blank">解决Apache和IIS服务器同时存在时，去除网址后面端口号的问题</a></li>
+        </ul>    
+    </div>
+    <div class="canDo">
+        <a href="#canDo" data-scroll='true'  class="noLine"><h3 id="canDo">技术栈</h3></a>
+        <ul>
+            <li>熟悉Java多线程，集合类，反射思想等。了解.NET语言，进行过简单开发</li>
+            <li>了解SSM，能使用SpringBoot微框架进行整合开发，了解Shiro权限框架，使用视图引擎Thymeleaf等技术进行页面静态化，会使用mybaties分页插件pagehelper进行内存真分页，通用mapper插件节省大量人力时间</li>
+            <li>熟悉mysql，sqlserver，可以进行复杂语句查询，sql语句优化，可以编写存储过程等提高性能效率，了解MongoDB，oracle，Redis</li>
+            <li>掌握前端easyui，bootstrap, jQuery，Ajax等技术以及一些前端库，来提高交互效果。例如layer弹出层插件，bootstrapTable表格插件等。</li>
+			<li>会使用git，maven，svn 等工具，来进行团队协同开发。</li>
+        </ul>
+    </div>
+    <div>
+    <a href="#selfIhonor" data-scroll='true'  class="noLine"><h3 id="selfIhonor">个人荣誉</h3></a>
+        <ul>
+            <li>获得学校三等奖学金</li>
+            <li>获得蓝桥杯省赛个人二等奖，团队三等奖</li>
+        </ul>
+    </div>
+    <div class="selfIntro">
+        <a href="#selfIntro" data-scroll='true'  class="noLine"><h3 id="selfIntro">自我评价</h3></a>
+        <ul>
+            <li>有较强的自学能力，喜欢追逐前沿技术，经常写博客总结知识，喜欢在V2EX社区与他人交流分享，相互学习。</li>
+            <li>熟悉J2EE架构，了解SSM内部思想及使用，能够使用springboot进行WEB开发，有良好的团队合作和交流意识，以及一定的工作压力承受能力，并具有很好的分析问题和解决问题的能力，对IT领域的软件开发和设计工作有浓厚的兴趣，如能加入贵公司，我将全力以赴。</li>
+        </ul>
+    </div>
+    <div class="thx">
+        <a href="#selfIntro" data-scroll='true'  class="noLine"><h3 id="selfIntro">致谢</h3></a>
+        <p>感谢您花时间阅读我的简历，期待有机会与您一起共事。</p>
+    </div>
+</div>
+</body>
+</html>
